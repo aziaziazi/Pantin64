@@ -20,10 +20,12 @@ app.get("/", function(req,res){
 io.on('connection', function(socket){
 	console.log("socket ON")
 
+	// return value of checkOrientLandPort
 	socket.on("land", function(isTrue){
 		console.log(isTrue)
 	});
 
+// Rturn
 	socket.on("orientation", function(log){
 		console.log(log);
 	});
@@ -59,20 +61,7 @@ io.on('connection', function(socket){
 		robot.keyToggle("z", "up");
 	});
 
-	// socket.on("right_do", function(){
-	// 	robot.keyToggle("y", "down");
-	// });
-	// socket.on("right_up", function(){
-	// 	robot.keyToggle("y", "up");
-	// });
-
-	// socket.on("left_do", function(){
-	// 	robot.keyToggle("t", "down");
-	// });
-	// socket.on("left_up", function(){
-	// 	robot.keyToggle("t", "up");
-	// });
-
+	// TODO: implement press functions
 	var y_up = function(){robot.keyToggle("y", "up")};
 	var t_up = function(){robot.keyToggle("t", "up")};
 
