@@ -27,28 +27,12 @@ function initGamePad(){
 
   // At orientation LAND/PORT change, check new orientation
   window.addEventListener("orientationchange", function(){
-    checkOrientLandPort()
+    socket.emit("dir", "l");
   });
-  // TODO: Optimise : is there a way not to check land each time ?
+
+  // Test to send raw data
   window.addEventListener("deviceorientation", function(e){
-    if (land == true){
-      var rowRot = -getRawOrientation(e).beta
-    }else{
-      var rowRot = getRawOrientation(e).gamma
-    }
-
-    // TODO:update rowrot instead of creating rot ?
-    var rot = Math.round(rowRot);
-
-    // TOTO: optimise
-    // Send Right(t) or Left(y) or nothing (x)
-    if (rot>5){
-      socket.emit("dir", "l");
-    } else if (-rot>5){
-      socket.emit("dir", "r");
-    }else{
-      socket.emit("dir", "x");
-    }
+    socket.emit("rowRot", getRawOrientation(e));
   });
 
   var but_j = document.getElementById('j')
