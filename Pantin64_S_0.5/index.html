@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Socket.IO chat</title>
+	<title>PhoneKart64</title>
 
 <!-- Prevent zooming in mobile >> Disable double tap zoom ! -->
 <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -14,7 +14,9 @@
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="style.css">
 
+	<!-- TODO: Move to gamepad.js ? -->
 	<script src="/socket.io/socket.io.js"></script>
+
 	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="./gamepad.js"></script>
 
@@ -22,10 +24,10 @@
 
 <body onload="initGamePad()">
 
-		<button id="j" class="square top left">Jump</button>
-		<button id="g" class="square top right">Go</eebutton>
-		<button id="f" class="square bottom left">Fire</button>
-		<button id="b" class="square bottom right">Brake</button>
+		<button id="j" class="square top left"><!-- Jump --></button>
+		<button id="g" class="square top right"><!-- Go --></eebutton>
+		<button id="f" class="square bottom left"><!-- Fire --></button>
+		<button id="b" class="square bottom right"><!-- Brake --></button>
 
  <!--    <div class="controler">
       <button id="l">Left</button>
