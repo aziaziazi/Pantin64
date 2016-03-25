@@ -14,7 +14,6 @@ function checkOrientLandPort(){
     };
 };
 
-
 function getRawOrientation(event){
   var beta = event.beta;
   var gamma = event.gamma;
@@ -30,8 +29,7 @@ function initGamePad(){
   window.addEventListener("orientationchange", function(){
     checkOrientLandPort()
   });
-
-  // // TODO: Optimise : is there a way not to check land each time ?
+  // TODO: Optimise : is there a way not to check land each time ?
   window.addEventListener("deviceorientation", function(e){
     if (land == true){
       var rowRot = -getRawOrientation(e).beta
