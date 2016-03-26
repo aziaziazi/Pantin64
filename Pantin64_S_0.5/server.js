@@ -25,6 +25,12 @@ io.on('connection', function(socket){
 		console.log(isTrue)
 	});
 
+// Rturn
+	socket.on("orientation", function(log){
+		console.log(log);
+	});
+
+
 	// TOTO: Loop functions (?)
 	// TODO: Use JSON (?)
 	socket.on("j_do", function(){
@@ -59,52 +65,22 @@ io.on('connection', function(socket){
 	var y_up = function(){robot.keyToggle("y", "up")};
 	var t_up = function(){robot.keyToggle("t", "up")};
 
-	socket.on("rowRot", function(rowRot){
-		var rot = convertRot(rowRot).gamma
-		// Right
-		if ((rot > 7) && (rightDown == false)){
-			turnRight();
-		// Left
-		}else if ((rot < -7) && (leftDown == false)){
-			turnLeft();
+	socket.on("dir", function(d){
+		if (d=="l"){
+			robot.keyToggle("y", "down");
+			// setTimeout(y_up, 100);
+		}else if (d=="r"){
+			robot.keyToggle("t", "down")
+			// setTimeout(t_up, 100);
+
 		}
-		// Stop if right or left
-		else if ((rot > -7) && (rot < 7) && ((rightDown || leftDown) == true)){
-			stopTurning();
+		else if (d=="x"){
+			robot.keyToggle("y", "up")
+			robot.keyToggle("t", "up")
 		}
 	});
-
 });
 
 http.listen(port, hostname, function(){
   console.log(`Server running at http://${hostname}:${port}/`);
 });
-
-  function convertRot(rowRot){
-  	var rot = {"beta" : Math.round(rowRot.beta),
-  	"gamma" : Math.round(rowRot.gamma)
-  }
-  return rot
-}
-
-var rightDown = false;
-var leftDown = false
-
-function turnRight(){
-	rightDown = true;
-	robot.keyToggle("y", "down");
-}
-
-function turnLeft(){
-	leftDown = true;
-	// console.log("Start pressing Left");
-	robot.keyToggle("t", "down");
-}
-
-function stopTurning(){
-	rightDown = false;
-	leftDown = false;
-	// console.log("Stop pressing")
-	robot.keyToggle("y", "up");
-	robot.keyToggle("t", "up");
-}

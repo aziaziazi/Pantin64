@@ -58,5 +58,15 @@
 		},
 		"domId": "",
 		"Action": "Turn Right"
+	},
+	"stick-bot":{
+	"computerKey":{
+		"p1":"u",
+		"p2":"",
+		"p3":"",
+		"p4":""
+	},
+	"domId": "",
+	"Action": ""
 	}
 }
