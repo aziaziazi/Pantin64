@@ -22,7 +22,17 @@ As the programm is merely a gamepad, you should be able to use it for any other 
 6. You're good! Use touch buttons for controls and orient your device left or right for turning!
 
 ## To Improve
-* Using JSON keymap
 * Mutli players
+* Using JSON keymap
+* Go on Resberry/Linux (for online version) :
+  * Use [CEN64](https://github.com/tj90241/cen64)
+  * Use [Mupen64Plus](http://www.mupen64plus.org/)
+  * Recompile [SixtyForce](http://sixtyforce.com/)
+  * Run [SixtyForce](http://sixtyforce.com/) with [Darling](www.darlinghq.org)
+  * Run any [other windows emulator](https://en.wikipedia.org/wiki/List_of_video_game_emulators#Nintendo_64) on linux using [Wine](https://www.winehq.org/)
+* Thinks to keep in mind in the choice of emulator :
+  * Works / Stable
+  * Support 4 players (or easy improvement)
+  * Support analogic pad :D
 * Online version
-* Changing aspect/behavior of the gamepad depending of the state of the emulator : Waiting for opponent/menu/playing...
+* Use pixel detection for changing aspect/behavior of the gamepad depending of the state of the emulator : waiting for opponent/menu/playing...
