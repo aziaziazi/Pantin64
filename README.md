@@ -8,7 +8,7 @@ For your web app and server, you need:
 * [RobotJS](https://github.com/octalmage/robotjs)
 * [Express](https://www.npmjs.com/package/express)
 
-And of course an emulator of Nitendo64 and a ROM. I use [SixtyForce](http://sixtyforce.com/) and [this ROM](http://emu-fr.net/v1/module.php?page=programme_detail&type_programme=roms&i=1611).
+And of course an emulator of Nitendo64 and a ROM. I use [SixtyForce](http://sixtyforce.com/) (Mac) and [this ROM](http://emu-fr.net/v1/module.php?page=programme_detail&type_programme=roms&i=1611).
 As the programm is merely a gamepad, you should be able to use it for any other game/application.
 
 ## Exemple
