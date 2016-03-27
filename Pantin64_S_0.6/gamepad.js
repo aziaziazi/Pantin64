@@ -1,74 +1,33 @@
 var socket = io();
 
-// true = Landscape
-// false = portrait
-var land
-
-function checkOrientLandPort(){
-    if(window.innerHeight > window.innerWidth){
-      land = false;
-      socket.emit("land", land)
-    }else{
-      land = true;
-      socket.emit("land", land)
-    };
-};
-
-function getRawOrientation(event){
+function RawOrientation(event){
   var beta = event.beta;
-  var gamma = event.gamma;
-  return {"beta":beta,
-          "gamma":gamma}
+  return {"beta":beta}
 };
 
 function initGamePad(){
 
-  // IMPLEMENT: check device compatibility
-
-  // At orientation LAND/PORT change, check new orientation
-  window.addEventListener("orientationchange", function(){
-    socket.emit("dir", "l");
-  });
-
-  // Test to send raw data
   window.addEventListener("deviceorientation", function(e){
-    socket.emit("rowRot", getRawOrientation(e));
+    socket.emit("rowOrientation", RawOrientation(e));
   });
 
-  var but_j = document.getElementById('j')
-  var but_g = document.getElementById('g')
-  var but_f = document.getElementById('f')
-  var but_b = document.getElementById('b')
+  document.getElementById('jump').addEventListener("touchstart", function(e){ socket.emit('butt', {"val":"jump", "toggle":"down" }); }, false);
+  document.getElementById('jump').addEventListener("touchend",   function(e){ socket.emit('butt', {"val":"jump", "toggle":"up"}); }, false);
 
+  document.getElementById('go').addEventListener("touchstart",   function(e){ socket.emit('butt', {"val":"go", "toggle":"down" }); }, false);
+  document.getElementById('go').addEventListener("touchend",     function(e){ socket.emit('butt', {"val":"go", "toggle":"released"}); }, false);
 
-  // TODO: Loop functions (?)
-  // TOTO: Use Json (?)
-  but_j.addEventListener("touchstart", function(e){
-    socket.emit('j_do');
-  }, false);
-  but_j.addEventListener("touchend", function(e){
-    socket.emit('j_up');
-  }, false);
+  document.getElementById('item').addEventListener("touchstart", function(e){ socket.emit('butt', {"val":"item", "toggle":"down" }); }, false);
+  document.getElementById('item').addEventListener("touchend",   function(e){ socket.emit('butt', {"val":"item", "toggle":"released"}); }, false);
 
-  but_g.addEventListener("touchstart", function(e){
-    socket.emit('g_do');
-  }, false);
-  but_g.addEventListener("touchend", function(e){
-    socket.emit('g_up');
-  }, false);
+  document.getElementById('brake').addEventListener("touchstart",function(e){ socket.emit('butt', {"val":"brake", "toggle":"down" }); }, false);
+  document.getElementById('brake').addEventListener("touchend",  function(e){ socket.emit('butt', {"val":"brake", "toggle":"released"}); }, false);
 
-  but_f.addEventListener("touchstart", function(e){
-    socket.emit('f_do');
-  }, false);
-  but_f.addEventListener("touchend", function(e){
-    socket.emit('f_up');
-  }, false);
+  document.getElementById('start').addEventListener("touchstart",function(e){ socket.emit('butt', {"val":"brake", "toggle":"down" }); }, false);
+  document.getElementById('start').addEventListener("touchend",  function(e){ socket.emit('butt', {"val":"brake", "toggle":"released"}); }, false);
 
-  but_b.addEventListener("touchstart", function(e){
-    socket.emit('b_do');
-  }, false);
-  but_b.addEventListener("touchend", function(e){
-    socket.emit('b_up');
-  }, false);
+  document.getElementById('options').addEventListener("touchstart",function(e){ socket.emit('butt', {"val":"brake", "toggle":"down" }); }, false);
+  document.getElementById('options').addEventListener("touchend",  function(e){ socket.emit('butt', {"val":"brake", "toggle":"released"}); }, false);
+
 
 };

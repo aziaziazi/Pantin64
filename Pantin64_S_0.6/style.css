@@ -2,13 +2,17 @@
   box-sizing: border-box;
 }
 
+body{
+	background-color: #110000;
+}
+
 .square{
 	font-size:50px;
 	text-decoration: none;
-	color: white;
+	color: black;
 	font-family:'Press Start 2P', Courier, sans-serif;
-	background-color: #110000;
-
+	background-size: cover;
+	background-color: none;
 	float:left;
 	position:relative;
 	width:50%;
@@ -17,13 +21,13 @@
 
 
 .top{
-	height:70vh;
-	font-size:50px;
+	height:50vh;
+	font-size:30px;
 }
 
 .bottom{
-	height:30vh;
-	font-size:25px;
+	height:50vh;
+	font-size:35px;
 }
 
 .top{
@@ -43,19 +47,19 @@
 	border-right:10px solid white;
 }
 
-
-.top.left{
-	background-color: ;
+/*
+#j{
+	background: url(images/jump.png)no-repeat center center;
 }
 
-.top.right{
-	background-color: ;
+#g{
+	background: url(images/go.png)no-repeat center center;
 }
 
-.bottom.left{
-	background-color: ;
+#f{
+	background: url(images/item.png)no-repeat center center;
 }
 
-.bottom.right{
-	background-color: ;
-}
+#b{
+	background: url(images/brake.png)no-repeat center center;
+}*/

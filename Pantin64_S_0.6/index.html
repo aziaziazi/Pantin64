@@ -6,17 +6,13 @@
 <!-- Prevent zooming in mobile >> Disable double tap zoom ! -->
 <meta name="viewport" content="width=device-width, user-scalable=no">
 
-
-
-<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
-
+<!-- <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+ -->
 
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="style.css">
 
-	<!-- TODO: Move to gamepad.js ? -->
 	<script src="/socket.io/socket.io.js"></script>
-
 	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="./gamepad.js"></script>
 
@@ -24,18 +20,12 @@
 
 <body onload="initGamePad()">
 
-		<button id="j" class="square top left"><!-- Jump --></button>
-		<button id="g" class="square top right"><!-- Go --></eebutton>
-		<button id="f" class="square bottom left"><!-- Fire --></button>
-		<button id="b" class="square bottom right"><!-- Brake --></button>
+	<div id="buttonContainer">
+		<button id="jump" class="square top left"><!-- Jump --></button>
+		<button id="go" class="square top right"><!-- Go --></eebutton>
+		<button id="item" class="square bottom left"><!-- Fire --></button>
+		<button id="brake" class="square bottom right"><!-- Brake --></button>
+	</div>
 
- <!--    <div class="controler">
-      <button id="l">Left</button>
-    </div>
-
-        <div class="controler">
-      <button id="r">Right</button>
-    </div>
-  -->
 </body>
 </html>
