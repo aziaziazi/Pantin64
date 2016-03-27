@@ -33,6 +33,6 @@ As the program is merely a gamepad, you should be able to use it for any other g
 * Thinks to keep in mind in the choice of emulator :
   * Works / Stable
   * Support 4 players (or easy improvement)
-  * ~~Support analogic pad ~~ Forthcomming version will emulate it ;)
+  * ~~Support analogic pad~~ Forthcomming version will emulate it ;)
 * Online version
 * Use pixel detection for changing aspect/behavior of the gamepad depending of the state of the emulator : waiting for opponent/menu/playing...
