@@ -3,6 +3,9 @@ Open a browser on a computeur and play MarioKart 64 with you touch device!
 HTML buttons for controls and device rotation for turns.
 Multiplayer now supported :D
 
+## Exemple
+![alt text](./images/Pantin64_S_0.5.gif)
+
 ## Installation
 For your web app and server, you need:
 * [node.js](https://nodejs.org/en/)
@@ -12,9 +15,6 @@ For your web app and server, you need:
 
 And of course an emulator of Nitendo64 and a ROM. I use [SixtyForce](http://sixtyforce.com/) (Mac) and [this ROM](http://emu-fr.net/v1/module.php?page=programme_detail&type_programme=roms&i=1611).
 As the program is merely a gamepad, you should be able to use it for any other game/application.
-
-## Exemple
-![alt text](./images/Pantin64_S_0.5.gif)
 
 ## Testing
 1. Connect your laptop and phone on the same network
