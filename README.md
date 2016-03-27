@@ -18,7 +18,7 @@ As the program is merely a gamepad, you should be able to use it for any other g
 1. Connect your laptop and phone on the same network
 2. Start your emulator and ROM
 3. Lunch the server : `node server.js`
-5. On you mobile device, go to you server local address on port 3000 : *192.168.1.XX:3000*
+5. On your mobile device, go to you server local address on port 3000 : *192.168.1.XX:3000*
 6. You're good! Use touch buttons for controls and orient your device left or right for turning!
 
 ## To Improve
@@ -33,6 +33,6 @@ As the program is merely a gamepad, you should be able to use it for any other g
 * Thinks to keep in mind in the choice of emulator :
   * Works / Stable
   * Support 4 players (or easy improvement)
-  * Support analogic pad :D
+  * ~~Support analogic pad ~~ Forthcomming version will emulate it ;)
 * Online version
 * Use pixel detection for changing aspect/behavior of the gamepad depending of the state of the emulator : waiting for opponent/menu/playing...
