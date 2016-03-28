@@ -4,7 +4,9 @@ HTML buttons for controls and device rotation for turns.
 Multiplayer now supported :D
 
 ## Exemple
-![alt text](./images/Pantin64_S_0.5.gif)
+![User interface of version 0.6](./images/UI_0.6.png)
+
+![Test of touchs buttons for controling MarioKart on the laptop](./images/Pantin64_S_0.5.gif)
 
 ## Installation
 For your web app and server, you need:
@@ -26,7 +28,6 @@ As the program is merely a gamepad, you should be able to use it for any other g
 
 ## To Improve
 * Use pixel detection for changing aspect/behavior of the gamepad depending of the state of the emulator : waiting for opponent/menu/playing...
-* Genius UI/UX on the frontEnd
 * Find a better name : KontrolKart64 ? SmartphoneKart ?
 * Go online : Resberry/Linux :
   * Use [CEN64](https://github.com/tj90241/cen64) or [Mupen64Plus](http://www.mupen64plus.org/)
