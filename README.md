@@ -32,7 +32,7 @@ As the program is merely a gamepad, you should be able to use it for any other g
   * Recompile [SixtyForce](http://sixtyforce.com/) for linux
   * Run [SixtyForce](http://sixtyforce.com/) with [Darling](www.darlinghq.org)
   * Run any [other windows emulator](https://en.wikipedia.org/wiki/List_of_video_game_emulators#Nintendo_64) on linux using [Wine](https://www.winehq.org/)
-  * Buy a Mac Mini for setting up a server at home. Easy, but bandwith and speed won't be brillant)
+  * Buy a Mac Mini for setting up a server at home. Easy, but bandwith and speed won't be brillant
 
 *Thinks to keep in mind in the choice of emulator :*
   * Works / Stable
