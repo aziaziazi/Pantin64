@@ -4,7 +4,7 @@ HTML buttons for controls and device rotation for turns.
 Multiplayer now supported :D
 
 ## Exemple
-![User interface of version 0.6](./images/UI_0.6.png)
+<img src="./images/UI_0.6.png" alt="User interface of version 0.6" width="500x">
 
 ![Test of touchs buttons for controling MarioKart on the laptop](./images/Pantin64_S_0.5.gif)
 
@@ -39,5 +39,5 @@ As the program is merely a gamepad, you should be able to use it for any other g
 *Thinks to keep in mind in the choice of emulator :*
   * Works / Stable
   * Support 4 players (or easy improvement)
-  * ~~Support analogic pad~~ Double nested timeOut now emulate it ;)
+  * ~~Support analogic pad~~ now emulate it ;)
 
