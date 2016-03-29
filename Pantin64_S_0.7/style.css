@@ -1,0 +1,129 @@
+*{
+ 	font-family:'Press Start 2P', Courier, sans-serif;
+ 	box-sizing:border-box;
+ 	padding: 0 0 0 0;
+}
+
+body{
+	background-color: #110000;
+	position: absolute;
+}
+
+button{
+  background : none;
+  border : none;
+}
+
+h1{
+	line-height: 1.3;
+}
+
+p{
+	line-height: 1.3;
+}
+
+.fullScreen{
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+
+.container{
+	float: left;
+	position: relative;
+	margin: 0%;
+	padding: 0px;
+}
+
+.welcome.container{
+	position:absolute;
+	width: 100vw;
+	height:100vh;
+	padding: 20px;
+	z-index: 2;
+}
+
+.welcome.color{
+	background-color: #FFC107;
+	border: 6px solid black;
+}
+
+
+.welcome.close{
+	float: right;
+	top: 0;
+	right:0;
+	padding: 0px 25px;
+
+}
+
+.welcome.text{
+	position: absolute;
+	bottom: 0;
+	padding: 0px 25px;
+
+}
+
+.color{
+	float: left;
+	position: relative;
+	margin: 0%;
+	padding: 0px;
+	width:100%;
+	height: 100%;
+}
+
+.horizontalDivider{
+	width:100%;
+	height: 50%;
+}
+
+.verticalDivider{
+	width:50%;
+	height: 100%;
+}
+
+.jump.color{ background-color: #FFC107 }
+.jump.png{ background: url(images/jump.png)no-repeat center center }
+
+.go.color{ background-color: #FF5722 }
+.go.png{ background: url(images/go.png)no-repeat center center }
+
+.item.color{ background-color: #CDDC39 }
+.item.png{ background: url(images/item.png)no-repeat center center }
+
+.brake.color{ background-color: #00BCD4 }
+.brake.png{ background: url(images/brake.png)no-repeat center center }
+
+.start.color{ background-color: #9E9E9E }
+.start.png{ background: url(images/start.png)no-repeat center center }
+
+.camPos.color{ background-color: #607D8B }
+.camPos.png{ background: url(images/camera.png)no-repeat center center }
+
+.display.color{ background-color: #9E9E9E }
+.display.png{ background: url(images/display.png)no-repeat center center }
+
+
+.png{
+	margin: auto;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+	width: 70%;
+	height: 70%;
+	background-size: contain !important;
+}
+
+.noselect{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.grid{
+	padding: 3px
+}
