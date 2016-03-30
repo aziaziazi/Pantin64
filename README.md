@@ -4,7 +4,8 @@ HTML buttons for controls and device rotation for turns.
 Multiplayer now supported :D
 
 ## Exemple
-<img src="./images/UI_0.6.png" alt="User interface of version 0.6" width="500x">
+<img src="./images/UI_0.7.welcome.png" alt="User interface of version 0.7" width="500x">
+<img src="./images/UI_0.7.gamepad" alt="User interface of version 0.7" width="500x">
 
 ![Test of touchs buttons for controling MarioKart on the laptop](./images/Pantin64_S_0.5.gif)
 
