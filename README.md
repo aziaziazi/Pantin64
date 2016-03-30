@@ -3,7 +3,9 @@ Open a browser on a computeur and play MarioKart 64 with you touch device!
 HTML buttons for controls and device rotation for turns.
 Multiplayer now supported :D
 
-## Exemple<img src="./images/UI/UI_0.7.welcome.png" alt="User interface of version 0.7 welcome message" width="200x"><img src="./images/UI/UI_0.7.gamepad.png" alt="User interface of version 0.7 gamepad" width="200x">
+## Exemple
+
+<img src="./images/UI/UI_0.7.welcome.png" alt="User interface of version 0.7 welcome message" width="200x"><img src="./images/UI/UI_0.7.gamepad.png" alt="User interface of version 0.7 gamepad" width="200x">
 
 ![Test of touchs buttons for controling MarioKart on the laptop](./images/Pantin64_S_0.5.gif)
 
