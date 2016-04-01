@@ -30,7 +30,7 @@ As the program is merely a gamepad, you should be able to use it for any other g
 
 ## To Improve
 * Use pixel detection for changing aspect/behavior of the gamepad depending of the state of the emulator : waiting for opponent/menu/playing...
-* Find a better name : KontrolKart64 ? SmartphoneKart ?
+* Find a better name : KontrolKart ? SmartphoneKart64 ?
 * Go online : Resberry/Linux :
   * Use [CEN64](https://github.com/tj90241/cen64) or [Mupen64Plus](http://www.mupen64plus.org/)
   * Recompile [SixtyForce](http://sixtyforce.com/) for linux
