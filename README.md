@@ -15,6 +15,7 @@ For your web app and server, you need:
 * [socket.io](http://socket.io/)
 * [RobotJS](https://github.com/octalmage/robotjs)
 * [Express](https://www.npmjs.com/package/express)
+* [bezier-easing](https://github.com/gre/bezier-easing)
 
 And of course an emulator of Nitendo64 and a ROM. I use [SixtyForce](http://sixtyforce.com/) (Mac) and [this ROM](http://emu-fr.net/v1/module.php?page=programme_detail&type_programme=roms&i=1611).
 As the program is merely a gamepad, you should be able to use it for any other game/application.
