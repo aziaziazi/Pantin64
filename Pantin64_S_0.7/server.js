@@ -8,15 +8,13 @@ var io = require("socket.io")(http);
 var robot = require("robotjs");
 
 var nbrCurrentPlayers = 0;
-
-
-
+var timeClient;
 
 // TEST TIME INTERNAL
-function testTime(tBefore){
+function socketTime(tBefore){
 		var tAfter = Date.now();
-		var testTime = tAfter - tBefore;
-		console.log(">>> testTime = " + testTime)
+		var socketTime = tAfter - tBefore;
+		console.log("socketTime = " + socketTime)
 }
 
 
@@ -58,8 +56,8 @@ http.listen(port, hostname, function(){
 
 io.on('connection', function(socket){
 		// TEST SOCKET TIME
-	socket.on("tClient", function(tClient){
-		testTime(tClient)
+	socket.on("timeClient", function(timeClient){
+		socketTime(timeClient)
 	});
 
 
@@ -85,10 +83,20 @@ io.on('connection', function(socket){
 	// TODO: re-implement back (brake + stick down)
 	// Fetch and instantiate the local keys ??
 	socket.on("butt", function(butt){
-		if (butt.toggle === "pressed"){
-			robot.keyToggle(keys[butt.val][idPlayer], "down");
-		}else if (butt.toggle === "released"){
-			robot.keyToggle(keys[butt.val][idPlayer], "up");
+		if (butt.val === "brake"){
+			if (butt.toggle === "pressed"){
+				robot.keyToggle(keys["brake"][idPlayer], "down");
+				robot.keyToggle(keys["down"][idPlayer], "down");
+			}else if (butt.toggle === "released"){
+				robot.keyToggle(keys["brake"][idPlayer], "up");
+				robot.keyToggle(keys["down"][idPlayer], "up");
+			};
+		}else{
+			if (butt.toggle === "pressed"){
+				robot.keyToggle(keys[butt.val][idPlayer], "down");
+			}else if (butt.toggle === "released"){
+				robot.keyToggle(keys[butt.val][idPlayer], "up");
+			};
 		};
 	});
 
@@ -98,11 +106,11 @@ io.on('connection', function(socket){
 
 	// ROTATION
 	var minAngle = 5;
-	var maxAngle = 45;
+	var maxAngle = 35;
 	var timeChunk = 5;
 	var currentOrientation = 0;
   var tBefore;
-	var easing = BezierEasing(.50, 0, .70, 1);
+	var easing = BezierEasing(.50, 0, .50, 1);
 	var roundDecimal = 1000
 	// var easing = BezierEasing(.60, 0, .40, 1);
 
@@ -142,7 +150,6 @@ io.on('connection', function(socket){
 function turnHandler(){
 
 	setInterval(function() {
-		console.log(currentOrientation)
 		if (currentOrientation == 0){
 			turnKeyUp()			// This is necessary only in the case of a currentOrientation going 0 just after a turnKeyDown()
 											// because it doesn't automatically call a turnKeyUp(). It's very likely that the relativeTurn (else statement)
@@ -216,7 +223,7 @@ var keys = {
 		"3":"h",
 		"4":"n"
 	},
-	"downArrow":{// Stick Down
+	"down":{// Stick Down
 		"1":"7",
 		"2":"u",
 		"3":"j",
@@ -228,19 +235,13 @@ var keys = {
 		"3":"k",
 		"4":";"
 	},
-	"camPos":{ // C up
+	"up":{ // Stic Up
 		"1":"9",
 		"2":"o",
 		"3":"l",
 		"4":":"
 	},
-	"display":{ // C right
-		"1":"0",
-		"2":"p",
-		"3":"m",
-		"4":"="
-	},
-	"musicVol":{ // L button. On Game select, choose options
+	"optionslButton":{ // L button. On Game select, choose options
 		"1":">",
 		"1":">",
 		"1":">",

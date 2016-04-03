@@ -98,11 +98,11 @@ p{
 .start.color{ background-color: #9E9E9E }
 .start.png{ background: url(images/start.png)no-repeat center center }
 
-.camPos.color{ background-color: #607D8B }
-.camPos.png{ background: url(images/camera.png)no-repeat center center }
+.up.color{ background-color: #000 }
+.up.png{ background: url(images/up.png)no-repeat center center }
 
-.display.color{ background-color: #9E9E9E }
-.display.png{ background: url(images/display.png)no-repeat center center }
+.down.color{ background-color: #000 }
+.down.png{ background: url(images/down.png)no-repeat center center }
 
 
 .png{

@@ -10,10 +10,10 @@ function initGamePad(){
   // ORIENTATION
   window.addEventListener("deviceorientation", function(e){
     //  TIME TEST
-    tClient = Date.now();
+    timeClient = Date.now();
     socket.emit("rowOrientation", RawOrientation(e));
     //  TIME TEST
-    // socket.emit("tClient", tClient)
+    // socket.emit("timeClient", timeClient)
 
   });
 
@@ -22,17 +22,48 @@ function initGamePad(){
     // TODO : Is touchend called twic ?
     // TODO : Keep (e) ?
 
-  $('#go').bind("touchstart",     function(e){ tClient = Date.now(); socket.emit('butt', {"val":"go",      "toggle":"pressed"}) });
-  $('#go').bind("touchend",       function(e){ tClient = Date.now(); socket.emit('butt', {"val":"go",      "toggle":"released"}) });
-  $('#jump').bind("touchstart",   function(e){ tClient = Date.now(); socket.emit('butt', {"val":"jump",    "toggle":"pressed"}) });
-  $('#jump').bind("touchend",     function(e){ tClient = Date.now(); socket.emit('butt', {"val":"jump",    "toggle":"released"}) });
-  $('#item').bind("touchstart",   function(e){ tClient = Date.now(); socket.emit('butt', {"val":"item",    "toggle":"pressed"}) });
-  $('#item').bind("touchend",     function(e){ tClient = Date.now(); socket.emit('butt', {"val":"item",    "toggle":"released"}) });
-  $('#brake').bind("touchstart",  function(e){ tClient = Date.now(); socket.emit('butt', {"val":"brake",   "toggle":"pressed"}) });
-  $('#brake').bind("touchend",    function(e){ tClient = Date.now(); socket.emit('butt', {"val":"brake",   "toggle":"released"}) });
-  $('#start').bind("touchstart",  function(e){ tClient = Date.now(); socket.emit('butt', {"val":"start",   "toggle":"pressed"}) });
-  $('#start').bind("touchend",    function(e){ tClient = Date.now(); socket.emit('butt', {"val":"start",   "toggle":"released"}) });
-  $('#options').bind("touchstart",function(e){ tClient = Date.now(); socket.emit('butt', {"val":"options", "toggle":"pressed"}) });
-  $('#options').bind("touchend",  function(e){ tClient = Date.now(); socket.emit('butt', {"val":"options", "toggle":"released"}) });
+  $('#go').bind("touchstart",     function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"go",      "toggle":"pressed"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#go').bind("touchend",       function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"go",      "toggle":"released"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#jump').bind("touchstart",   function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"jump",    "toggle":"pressed"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#jump').bind("touchend",     function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"jump",    "toggle":"released"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#item').bind("touchstart",   function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"item",    "toggle":"pressed"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#item').bind("touchend",     function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"item",    "toggle":"released"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#brake').bind("touchstart",  function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"brake",   "toggle":"pressed"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#brake').bind("touchend",    function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"brake",   "toggle":"released"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#start').bind("touchstart",  function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"start",   "toggle":"pressed"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#start').bind("touchend",    function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"start",   "toggle":"released"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#up').bind("touchstart",function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"up", "toggle":"pressed"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#up').bind("touchend",  function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"up", "toggle":"released"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#down').bind("touchstart",function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"down", "toggle":"pressed"});
+    // socket.emit("timeClient", timeClient)
+  });
+  $('#down').bind("touchend",  function(e){ timeClient = Date.now(); socket.emit('butt', {"val":"down", "toggle":"released"});
+    // socket.emit("timeClient", timeClient)
+  });
+
 
 };
