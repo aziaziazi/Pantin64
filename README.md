@@ -34,7 +34,7 @@ As the program is merely a gamepad, you should be able to use it for any other g
 * Go online : Resberry/Linux :
   * Use [CEN64](https://github.com/tj90241/cen64) or [Mupen64Plus](http://www.mupen64plus.org/)
   * Recompile [SixtyForce](http://sixtyforce.com/) for linux
-  * Run [SixtyForce](http://sixtyforce.com/) with [Darling](www.darlinghq.org)
+  * Run [SixtyForce](http://sixtyforce.com/) with [Darling](http://www.darlinghq.org/) BUT no GUI yet :/
   * Run any [other windows emulator](https://en.wikipedia.org/wiki/List_of_video_game_emulators#Nintendo_64) on linux using [Wine](https://www.winehq.org/)
   * Buy a Mac Mini for setting up a server at home. Easy, but bandwith and speed won't be brillant
 
