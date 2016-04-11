@@ -1,41 +1,12 @@
 var express = require("express");
 var app = express();
-var os = require('os');
-var BezierEasing = require('bezier-easing');
+
 
 var http = require('http').Server(app);
 var io = require("socket.io")(http);
 var robot = require("robotjs");
 
 var nbrCurrentPlayers = 0;
-var timeClient;
-
-// TEST TIME INTERNAL
-function socketTime(tBefore){
-		var tAfter = Date.now();
-		var socketTime = tAfter - tBefore;
-		console.log("socketTime = " + socketTime)
-}
-
-
-
-
-
-function getNetworkIp(){
-	var interfaces = os.networkInterfaces();
-	var addresses = [];
-	for (var k in interfaces) {
-	    for (var k2 in interfaces[k]) {
-	        var address = interfaces[k][k2];
-	        if (address.family === 'IPv4' && !address.internal) {
-	            addresses.push(address.address);
-	        };
-	    };
-	};
-return addresses;
-};
-
-
 
 
 
@@ -46,7 +17,6 @@ const port = 3000;
 
 http.listen(port, hostname, function(){
   console.log(`Server running at http://${hostname}:${port}/`);
-  console.log('Connect your client to ' + getNetworkIp() +":"+ port)
 });
 
   app.get("/", function(req,res){
@@ -54,15 +24,13 @@ http.listen(port, hostname, function(){
   });
 
 
+// speed : date.time
+
+
+// PLAYER CODE
+
 io.on('connection', function(socket){
-		// TEST SOCKET TIME
-	socket.on("timeClient", function(timeClient){
-		socketTime(timeClient)
-	});
 
-
-
-	// PLAYER
 	var idPlayer;
 
 	if (nbrCurrentPlayers < 4){
@@ -76,93 +44,71 @@ io.on('connection', function(socket){
 		console.log("Welcome Player " + idPlayer)
 	}
 
-
-
-
 	// BUTTONS
+
 	// TODO: re-implement back (brake + stick down)
 	// Fetch and instantiate the local keys ??
 	socket.on("butt", function(butt){
-		if (butt.val === "brake"){
-			if (butt.toggle === "pressed"){
-				robot.keyToggle(keys["brake"][idPlayer], "down");
-				robot.keyToggle(keys["down"][idPlayer], "down");
-			}else if (butt.toggle === "released"){
-				robot.keyToggle(keys["brake"][idPlayer], "up");
-				robot.keyToggle(keys["down"][idPlayer], "up");
-			};
+		if (butt.toggle == "pressed"){												//TRY Binari data
+			robot.keyToggle(keys[butt.val][idPlayer], "down");
 		}else{
-			if (butt.toggle === "pressed"){
-				robot.keyToggle(keys[butt.val][idPlayer], "down");
-			}else if (butt.toggle === "released"){
-				robot.keyToggle(keys[butt.val][idPlayer], "up");
-			};
-		};
+			robot.keyToggle(keys[butt.val][idPlayer], "up");
+		}
 	});
-
-
 
 
 
 	// ROTATION
-	var minAngle = 5;
-	var maxAngle = 35;
+	var minAngle = 10;
+	var maxAngle = 30;
 	var timeChunk = 5;
 	var currentOrientation = 0;
-  var tBefore;
-	var easing = BezierEasing(.50, 0, .50, 1);
-	var roundDecimal = 1000
-	// var easing = BezierEasing(.60, 0, .40, 1);
-
+	var decimalRound = 10
 
 	socket.on("rowOrientation", function(rowOrientation){
-		tBefore = Date.now();
-
-		currentOrientation = convertAngle(rowOrientation.beta);
-
-
+		currentOrientation = convertAngle(rowOrientation.beta)
 	});
 
-	function convertAngle(rowOrientation){
-
+	function convertAngle(rowOrientation){									//TRY Math on device (at least round)
 		positOrient = Math.abs(rowOrientation)
 		if (positOrient < minAngle){
 			return 0
 		}
 
-		else if ( positOrient >= minAngle && positOrient <= maxAngle ){
-			if (rowOrientation>0){// POSITIVE
-				convertedOrientation = Math.round(positOrient-minAngle)/(maxAngle-minAngle) // Range minAngle > maxAngle
-				return Math.round(easing(convertedOrientation)*roundDecimal)/roundDecimal	// easing
-			}else{								// NEGATIVE
-				convertedOrientation = Math.round(positOrient-minAngle)/(maxAngle-minAngle)
-				return Math.round(easing(convertedOrientation)*roundDecimal)/roundDecimal*(-1)
-			}
-		}else if(rowOrientation>maxAngle){
-			return 1
-		}else{
-			return -1
-		};
+		// MAKE BETTER ??
+		// Positive
+		else if (positOrient > minAngle && positOrient < maxAngle && rowOrientation>0) {
+			return Math.round(rowOrientation-minAngle)/(maxAngle-minAngle)
 
-	}
+		// Negative
+	}else if (positOrient > minAngle && positOrient < maxAngle && rowOrientation<0) {
+		return Math.round(rowOrientation+minAngle)/(maxAngle-minAngle)
+
+	}else if(rowOrientation>maxAngle){
+		return 1
+	}else{
+		return -1
+	};
+}
 
 
 function turnHandler(){
-
 	setInterval(function() {
 		if (currentOrientation == 0){
 			turnKeyUp()			// This is necessary only in the case of a currentOrientation going 0 just after a turnKeyDown()
 											// because it doesn't automatically call a turnKeyUp(). It's very likely that the relativeTurn (else statement)
 											// will be call between. But not impossible...
-		}else if (currentOrientation == 1 || currentOrientation == -1){
+		}else if (currentOrientation == 1 || currentOrientation == -1){ // Group ?
 			turnKeyDown()
 		}else{
-			turnKeyDown()
 			setTimeout(function() {
-				turnKeyUp()
-			}, currentOrientation*timeChunk);
+				turnKeyDown()
+				setTimeout(function() {
+					turnKeyUp()
+				}, currentOrientation*timeChunk);
+			}, timeChunk);
 		}
-	},timeChunk)
+	},0)
 };
 
 
@@ -172,13 +118,13 @@ function turnKeyDown(){
 	}
 	else{
 		robot.keyToggle(keys["left"][idPlayer], "down");
-	};
+	}
 };
 
 function turnKeyUp(){
 	robot.keyToggle(keys["left"][idPlayer], "up");
 	robot.keyToggle(keys["right"][idPlayer], "up");
-};
+}
 
 turnHandler()
 
@@ -223,7 +169,7 @@ var keys = {
 		"3":"h",
 		"4":"n"
 	},
-	"down":{// Stick Down
+	"downArrow":{// Stick Down
 		"1":"7",
 		"2":"u",
 		"3":"j",
@@ -235,16 +181,22 @@ var keys = {
 		"3":"k",
 		"4":";"
 	},
-	"up":{ // Stic Up
+	"camPos":{ // C up
 		"1":"9",
 		"2":"o",
 		"3":"l",
 		"4":":"
 	},
-	"optionslButton":{ // L button. On Game select, choose options
+	"display":{ // C right
+		"1":"0",
+		"2":"p",
+		"3":"m",
+		"4":"="
+	},
+	"musicVol":{ // L button. On Game select, choose options
 		"1":">",
 		"1":">",
 		"1":">",
 		"1":">"
 	},
-};
+}
