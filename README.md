@@ -24,10 +24,12 @@ As the program is merely a gamepad, you should be able to use it for any other g
 ## Testing
 1. Connect your laptop and phone on the same network
 2. Start your emulator and ROM
-3. Go on settings and setup the keys according to the JSON at the end of server.js
+3. Move InputAutoCfg.ini in Mupen directory
 4. Lunch the server : `node server.js`
 5. On your mobile device, go to you server local address on port 3000 : *192.168.1.XX:3000*
 6. You're good! Use touch buttons for controls and orient your device left or right for turning!
+
+versions<0.7 -> use SixtyForce (mac). Don't forget to set up the controls on the emulator according to the json. 
 
 ## TODO
 * Install tests
@@ -36,5 +38,5 @@ As the program is merely a gamepad, you should be able to use it for any other g
 * Go online:
   * Resberry/Linux
   * Stream the emulator video online
-* Use analogic pad of [Mupen64Plus](http://www.mupen64plus.org/) OR use shift/alt modifyers of [Mupen64Plus](http://www.mupen64plus.org/) OR ~~emulate it~~ correct the emulation.
+* Use analogic pad of [Mupen64Plus](http://www.mupen64plus.org/) OR use shift/alt modifyers of [Mupen64Plus](http://www.mupen64plus.org/) OR ~~emulate it~~ correct the emulation
 
