@@ -39,4 +39,5 @@ versions<0.7 -> use SixtyForce (mac). Don't forget to set up the controls on the
   * Resberry/Linux
   * Stream the emulator video online
 * Use analogic pad of [Mupen64Plus](http://www.mupen64plus.org/) OR use shift/alt modifyers of [Mupen64Plus](http://www.mupen64plus.org/) OR ~~emulate it~~ correct the emulation
+* Update preview gif
 
