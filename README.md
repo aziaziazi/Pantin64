@@ -17,7 +17,8 @@ For your web app and server, you need:
 * [Express](https://www.npmjs.com/package/express)
 * [bezier-easing](https://github.com/gre/bezier-easing)
 
-And of course an emulator of Nitendo64 and a ROM. I use [SixtyForce](http://sixtyforce.com/) (Mac) and [this ROM](http://emu-fr.net/v1/module.php?page=programme_detail&type_programme=roms&i=1611).
+And of course an emulator of Nitendo64 and a ROM.
+I use [Mupen64Plus](http://www.mupen64plus.org/) and [this ROM](http://emu-fr.net/v1/module.php?page=programme_detail&type_programme=roms&i=1611).
 As the program is merely a gamepad, you should be able to use it for any other game/application.
 
 ## Testing
@@ -28,18 +29,12 @@ As the program is merely a gamepad, you should be able to use it for any other g
 5. On your mobile device, go to you server local address on port 3000 : *192.168.1.XX:3000*
 6. You're good! Use touch buttons for controls and orient your device left or right for turning!
 
-## To Improve
+## TODO
+* Install tests
 * Use pixel detection for changing aspect/behavior of the gamepad depending of the state of the emulator : waiting for opponent/menu/playing...
 * Find a better name : KontrolKart ? SmartphoneKart64 ?
-* Go online : Resberry/Linux :
-  * Use [CEN64](https://github.com/tj90241/cen64) or [Mupen64Plus](http://www.mupen64plus.org/)
-  * Recompile [SixtyForce](http://sixtyforce.com/) for linux
-  * Run [SixtyForce](http://sixtyforce.com/) with [Darling](http://www.darlinghq.org/) BUT no GUI yet :/
-  * Run any [other windows emulator](https://en.wikipedia.org/wiki/List_of_video_game_emulators#Nintendo_64) on linux using [Wine](https://www.winehq.org/)
-  * Buy a Mac Mini for setting up a server at home. Easy, but bandwith and speed won't be brillant
-
-*Thinks to keep in mind in the choice of emulator :*
-  * Works / Stable
-  * Support 4 players (or easy improvement)
-  * ~~Support analogic pad~~ now emulate it ;)
+* Go online:
+  * Resberry/Linux
+  * Stream the emulator video online
+* Use analogic pad of [Mupen64Plus](http://www.mupen64plus.org/) OR use shift/alt modifyers of [Mupen64Plus](http://www.mupen64plus.org/) OR ~~emulate it~~ correct the emulation.
 
