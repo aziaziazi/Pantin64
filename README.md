@@ -5,9 +5,10 @@ Multiplayer supported :D
 
 ## Exemple
 
-<img src="./images/UI/UI_0.7.welcome.png" alt="User interface of version 0.7 welcome message" width="200x"><img src="./images/UI/UI_0.7.gamepad.png" alt="User interface of version 0.7 gamepad" width="200x">
+<img src="./images/doc/UI/UI_0.7.welcome.png" alt="User interface of version 0.7 welcome message" width="200x">
+<img src="./images//doc/UI/UI_0.7.gamepad.png" alt="User interface of version 0.7 gamepad" width="200x">
 
-![Test of touchs buttons for controling MarioKart on the laptop](./images/Pantin64_S_0.5.gif)
+![Test of touchs buttons for controling MarioKart on the laptop](./images/doc/Pantin64_S_0.5.gif)
 
 ## Installation
 For your web app and server, you need:
@@ -29,7 +30,7 @@ As the program is merely a gamepad, you should be able to use it for any other g
 5. On your mobile device, go to you server local address on port 3000 : *192.168.1.XX:3000*
 6. You're good! Use touch buttons for controls and orient your device left or right for turning!
 
-versions<0.7 -> use SixtyForce (mac). Don't forget to set up the controls on the emulator according to the json. 
+versions<0.7 -> use SixtyForce (mac). Don't forget to set up the controls on the emulator according to the json.
 
 ## TODO
 * Install tests
