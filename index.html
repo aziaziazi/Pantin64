@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+	<title>PhoneKart64</title>
+
+	<!-- Prevent zooming in mobile >> Disable double tap zoom ! -->
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+
+
+	<link rel="stylesheet" href="./styles/normalize.css">
+	<link rel="stylesheet" href="./styles/style.css">
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="./gamepad.js"></script>
+
+</head>
+
+<body onload="initGamePad()">
+
+	<!-- WELCOME -->
+<!-- 	<div id=""class="welcome container"><div class="welcome color">
+
+		<div id="close" class="welcome close">
+			<h1>X</h1>
+		</div>
+
+		<div class="welcome text">
+			<h1>Phon<br>Kart<br>64</h1>
+			<p>Welcome to PhonKart! To ensure you're in full control, please lock your device orientation in portrait mode and get ready to race!</p>
+		</div>
+	</div></div>
+-->
+
+<!-- GAMEPAD -->
+<div class="fullScreen noselect grid">
+
+
+	<button id="go" class="horizontalDivider container grid"><div class="go color"><div class="go png"></div></div>
+	</button>
+
+	<div class="horizontalDivider container">
+
+		<button id="jump" class="verticalDivider container grid"><div class="jump color"><div class="jump png"></div></div>
+		</button>
+
+		<div class="verticalDivider container">
+			<div class="horizontalDivider container">
+				<div class="verticalDivider container">
+
+					<button id="start" class="horizontalDivider container grid"><div class="start color"><div class="start png"></div></div></button>
+
+						<div class="horizontalDivider container">
+							<button id="up" class="verticalDivider container grid"><div class="up color"><div class="up png"></div></div></button>
+							<button id="down" class="verticalDivider container grid"><div class="down color"><div class="down png"></div></div></button>
+						</div>
+				</div>
+
+				<button id="brake" class="verticalDivider container grid"><div class="brake color"><div class="brake png"></div></div>
+				</button>
+			</div>
+
+			<button id="item" class="horizontalDivider container grid"><div class="item color"><div class="item png"></div></div>
+			</button>
+		</div>
+
+	</div>
+
+
+</div>
+</body>
+</html>
