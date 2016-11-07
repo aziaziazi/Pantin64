@@ -1,6 +1,6 @@
 {
   "name": "Pantin64",
-  "version": "0.0.1",
-  "description": "my first socket.io app",
+  "version": "0.1.0",
+  "description": "Touch Device Controler for MarioKart on Nintendo64 emulator",
   "dependencies": {"TO COMPLETE"}
 }
