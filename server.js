@@ -17,10 +17,6 @@ function socketTime(tBefore){
 	console.log("socketTime = " + socketTime)
 }
 
-
-
-
-
 function getNetworkIp(){
 	var interfaces = os.networkInterfaces();
 	var addresses = [];
@@ -34,10 +30,6 @@ function getNetworkIp(){
 	};
 	return addresses;
 };
-
-
-
-
 
 app.use(express.static('./'));
 
@@ -56,9 +48,9 @@ app.get("/", function(req,res){
 io.on('connection', function(socket){
 
 	// TEST SOCKET TIME
-	socket.on("timeClient", function(timeClient){
-		socketTime(timeClient)
-	});
+	// socket.on("timeClient", function(timeClient){
+	// 	socketTime(timeClient)
+	// });
 
 	// PLAYER
 	var idPlayer;
@@ -66,18 +58,19 @@ io.on('connection', function(socket){
 	if (nbrCurrentPlayers < 4){
 		nbrCurrentPlayers++;
 		idPlayer = nbrCurrentPlayers;
-		console.log("Welcome Player " + idPlayer)
+		console.log("Welcome Player " + idPlayer);
 	}else{
-		nbrCurrentPlayers = 0
+		nbrCurrentPlayers = 0;
 		nbrCurrentPlayers++;
 		idPlayer = nbrCurrentPlayers;
-		console.log("Welcome Player " + idPlayer)
+		console.log("Welcome Player " + idPlayer);
 	}
 
 	// BUTTONS
-	// TODO: re-implement back (brake + stick down)
-	// Fetch and instantiate the local keys ??
 	socket.on("butt", function(butt){
+
+		// TODO: Fetch and instantiate the local keys ??
+		// TODO: re-implement back (brake + stick down)
 		// if (butt.val === "brake"){
 		// 	if (butt.toggle === "pressed"){
 		// 		robot.keyToggle(keys["brake"][idPlayer], "down");
@@ -90,7 +83,7 @@ io.on('connection', function(socket){
 		// }else{
 
 
-		//AZERTY (conversion to QWERTY)
+		//AZERTY (conversion to QWERTY) >> TODO: find a better way!
 		if (butt.toggle === "pressed"){
 			inputKey = keys[idPlayer][butt.val];
 			robot.keyToggle(azertyToQwerty[inputKey], "down");
@@ -117,7 +110,7 @@ io.on('connection', function(socket){
 	// ROTATION
 	var minAngle = 10;
 	var maxAngle = 35;
-	var timeChunk = 15;
+	var timeChunk = 50;
 	var currentOrientation = 0;
 	var tBefore;
 	var easing = BezierEasing(.50, 0, .50, 1);
@@ -158,15 +151,15 @@ io.on('connection', function(socket){
 				turnKeyUp()			// This is necessary only in the case of a currentOrientation going 0 just after a turnKeyDown()
 												// because it doesn't automatically call a turnKeyUp(). It's very likely that the relativeTurn (else statement)
 												// will be call between. But not impossible...
-											}else if (currentOrientation == 1 || currentOrientation == -1){
-												turnKeyDown()
-											}else{
-												turnKeyDown()
-												setTimeout(function() {
-													turnKeyUp()
-												}, currentOrientation*timeChunk);
-											}
-										},timeChunk)
+			}else if (currentOrientation == 1 || currentOrientation == -1){
+				turnKeyDown()
+			}else{
+				turnKeyDown()
+				setTimeout(function() {
+					turnKeyUp()
+				}, currentOrientation*timeChunk);
+			}
+		},timeChunk)
 
 	};
 
@@ -198,6 +191,63 @@ io.on('connection', function(socket){
 // Hash Maps ?
 var keys ={					// Controls
 	1:{
+		"right":		"a",	// DPad R
+		"left":			"b",	// DPad L
+		"down":			"c",	// DPad D
+		"up":				"d",	// DPad U
+		"start":		"e",	// Start
+		"item":			"f",	// Z Trig
+		"brake":		"g",	// B Button
+		"go":				"h",	// A Button
+		"display":	"i",	// C Button R
+		"":					"",		// C Button L
+		"":					"",		// C Button D
+		"camera":		"j",	// C Button U
+		"jump":			"k",	// R Trig
+		"":					"",		// L Trig
+		"25perCent":	"",
+		"50perCent":	"",
+		"75perCent":	""
+	},
+	2:{
+		"right":		"a",	// DPad R
+		"left":			"b",	// DPad L
+		"down":			"c",	// DPad D
+		"up":				"d",	// DPad U
+		"start":		"e",	// Start
+		"item":			"f",	// Z Trig
+		"brake":		"g",	// B Button
+		"go":				"h",	// A Button
+		"display":	"i",	// C Button R
+		"":					"",		// C Button L
+		"":					"",		// C Button D
+		"camera":		"j",	// C Button U
+		"jump":			"k",	// R Trig
+		"":					"",		// L Trig
+		"25perCent":	"",
+		"50perCent":	"",
+		"75perCent":	""
+	},
+	3:{
+		"right":		"a",	// DPad R
+		"left":			"b",	// DPad L
+		"down":			"c",	// DPad D
+		"up":				"d",	// DPad U
+		"start":		"e",	// Start
+		"item":			"f",	// Z Trig
+		"brake":		"g",	// B Button
+		"go":				"h",	// A Button
+		"display":	"i",	// C Button R
+		"":					"",		// C Button L
+		"":					"",		// C Button D
+		"camera":		"j",	// C Button U
+		"jump":			"k",	// R Trig
+		"":					"",		// L Trig
+		"25perCent":	"",
+		"50perCent":	"",
+		"75perCent":	""
+	},
+	4:{
 		"right":		"a",	// DPad R
 		"left":			"b",	// DPad L
 		"down":			"c",	// DPad D
